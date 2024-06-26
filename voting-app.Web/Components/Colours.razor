@@ -1,0 +1,29 @@
+<div class="row">
+    @if (Model != null && Model.Any())
+        @foreach (var colour in Model)
+    {
+        <div class="col-3 card p-1 mt-2" style="width: 18rem;" id="box-@colour.Name">
+            <div id="alerts-@colour.Name">
+                <SuccessMessage></SuccessMessage>
+            </div>
+            <div class="card-color-box" style="background-color: @colour.Name;"></div>
+            <div class="card-body">
+                <h5 class="card-title">@colour.Name</h5>
+                <form>
+                    <AntiforgeryToken/>
+                    <button class="btn btn-primary"
+                            hx-put="/colour/@colour.Name/vote"
+                            hx-target="#alerts-@colour.Name"
+                            hx-swap="innerHTML">Vote
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+
+@code
+{
+    [Parameter]
+    public Colour[] Model { get; set; }
+}

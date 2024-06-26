@@ -1,0 +1,12 @@
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div>
+        <div class="alert alert-success" role="alert">
+            @Model
+        </div>
+    </div>
+}
+@code {
+    [Parameter]
+    public string? Model { get; set; }
+}

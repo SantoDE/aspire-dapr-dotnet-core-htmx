@@ -1,0 +1,20 @@
+@model ColourVotes
+
+<div class="col-md-3">
+    <div class="card ml-2" style="width: 18rem;">
+        <div class="card-color-box" style="background-color: @Model.Name;"></div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <i id="count-@Model.Name" class="bi bi-heart">@Model.Count</i>
+            <button class="btn btn-primary"
+                hx-post="@Url.Page("/colours", "Vote", new { colourName = Model.Name })"
+                hx-params="*"
+                hx-trigger="click"
+                hx-target="#alert"
+                hx-get="#results">
+                hx-
+                Vote
+            </button>
+        </div>
+    </div>
+</div>

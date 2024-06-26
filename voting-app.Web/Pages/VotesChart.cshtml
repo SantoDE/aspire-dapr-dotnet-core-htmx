@@ -1,0 +1,27 @@
+@page "/results"
+@model voting_app.Web.Pages.VotesChartModel
+
+<div>
+    <h1>Results</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Colour</th>
+                        <th>Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var vote in Model.Votes)
+                    {
+                        <tr>
+                            <td>@vote.Name</td>
+                            <td>@vote.Count</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>

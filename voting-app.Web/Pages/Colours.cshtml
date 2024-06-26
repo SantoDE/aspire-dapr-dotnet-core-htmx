@@ -1,0 +1,25 @@
+@page "/colours"
+@model voting_app.Web.Pages.ColoursModel
+
+ <div class="row">
+    <div id ="alert"></div>
+    @foreach (var colour in Model.Colours)
+    {
+        <div class="col-md-3">
+            <div class="card ml-2" style="width: 18rem;">
+                <div class="card-color-box" style="background-color: @colour.Name;"></div>
+                <div class="card-body">
+                    <h5 class="card-title">@colour.Name</h5>
+                    <i id="count-@colour.Name" class="bi bi-heart">@colour.Count</i>
+                    <button class="btn btn-primary"
+                        hx-post="@Url.Page("/colours", "Vote", new { colourName = colour.Name })"
+                        hx-params="*"
+                        hx-trigger="click"
+                        hx-target="#alert">
+                        Vote
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>    
