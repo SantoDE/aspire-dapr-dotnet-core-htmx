@@ -45,6 +45,16 @@ dotnet workload install aspire
 
 If that gives a `Inadequate permissions. Run the command with elevated privileges.` run the command with a prefixed `sudo`.
 
+Check if Aspire is now listed with `dotnet workload list`:
+
+```
+$ dotnet workload list
+
+Installed Workload Id      Manifest Version      Installation Source
+--------------------------------------------------------------------
+aspire                     8.0.2/8.0.100         SDK 8.0.300 
+```
+
 # Build App (locally)
 ```
 dotnet run --project voting-app.AppHost
