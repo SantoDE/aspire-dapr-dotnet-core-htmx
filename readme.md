@@ -60,6 +60,19 @@ aspire                     8.0.2/8.0.100         SDK 8.0.300
 dotnet run --project voting-app.AppHost
 ```
 
+If you get the following error ([raised by this code in Aspire](https://github.com/dotnet/aspire/blob/03e9633c8b79a344be60286b8fc774c2525d1444/src/Aspire.Hosting.Dapr/DaprDistributedApplicationLifecycleHook.cs#L297)):
+
+```
+Unhandled exception. System.AggregateException: One or more errors occurred. (Unable to locate the Dapr CLI.)
+ ---> Aspire.Hosting.DistributedApplicationException: Unable to locate the Dapr CLI.
+```
+
+Your `dapr` runtime might not be located in a directory like `usr/local/bin/dapr`. In this case find your dapr runtime (on a Linux/Manjaro machine it was located at `/usr/bin/dapr`) and symlink it to `/usr/local/bin/dapr` like this:
+
+```
+sudo ln -s /your/dapr/runtime/location /usr/local/bin/dapr
+```
+
 # Deploy to Azure
 
 ```
