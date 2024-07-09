@@ -6,21 +6,18 @@ var pubSub = builder.AddDaprPubSub("pubsub");
 
 DaprSidecarOptions sidecarOptionsVote = new()
 {
-    EnableApiLogging = true,
     LogLevel = "DEBUG",
     AppId = "votes"
 };
 
 DaprSidecarOptions sidecarOptionsColours = new()
 {
-    EnableApiLogging = true,
     LogLevel = "DEBUG",
     AppId = "colours"
 };
 
 DaprSidecarOptions sidecarOptionWeb = new()
 {
-    EnableApiLogging = true,
     LogLevel = "DEBUG",
     AppId = "web"
 };
