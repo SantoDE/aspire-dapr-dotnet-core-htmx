@@ -5,6 +5,9 @@
 
 
 # Install AZD, dotnet Core runtime + SDK and Dapr CLI
+
+See https://docs.dapr.io/getting-started/install-dapr-cli/
+
 ```
 # On a Mac
 brew tap azure/azd && brew install azd
@@ -13,7 +16,8 @@ brew install --cask dotnet-sdk
 brew install dapr/tap/dapr-cli
 
 # Arch/Manjaro Linux
-pamac install dotnet-runtime-bin dotnet-sdk-bin aspnet-runtime-bin dapr-cli-bin
+pamac install dotnet-runtime-bin dotnet-sdk-bin aspnet-runtime-bin
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
 ```
 
 To check if everything is installed correctly, run `dotnet --list-runtimes`. It should look like this:
@@ -24,12 +28,16 @@ Microsoft.AspNetCore.App 8.0.6 [/usr/share/dotnet/shared/Microsoft.AspNetCore.Ap
 Microsoft.NETCore.App 8.0.6 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
 ```
 
-Also check
+Also check `azd version` and `dapr version`:
 
 ```
 $ azd version
-$ dapr -h
+$ dapr version
+CLI version: 1.13.0 
+Runtime version: 1.13.5
 ```
+
+Especially the Dapr CLI and runtime minor versions should be the same (patch could differ)!!!
 
 # Add Dependencies
 ```
